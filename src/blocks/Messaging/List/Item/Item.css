@@ -1,0 +1,9 @@
+.messages-list-item
+{
+    margin: 10px 0;
+}
+
+.messages-list-item__text:not(:last-child)
+{
+    margin-right: 10px;
+}

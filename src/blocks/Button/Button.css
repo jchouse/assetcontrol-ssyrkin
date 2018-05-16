@@ -1,0 +1,31 @@
+.btn
+{
+    display: inline-block;
+
+    margin: 0;
+    padding: 0 20px;
+
+    cursor: pointer;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 4px;
+    outline: none;
+
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
+.btn__warning
+{
+    color: orange;
+    border-color: orange;
+}
+
+.btn__error
+{
+    color: red;
+    border-color: red;
+}

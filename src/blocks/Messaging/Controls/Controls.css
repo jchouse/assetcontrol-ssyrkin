@@ -1,0 +1,18 @@
+.messaging-controls
+{
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.messaging-controls__row
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.messaging-controls__row--buttons
+{
+    flex-direction: row;
+}
