@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Button from '../../Button/Button';
 import './Controls.css';
-import { addMessage } from '../../../actions';
 
 const firebase = window.firebase;
 
@@ -22,8 +20,9 @@ class Controls extends Component {
             updates = {},
             key = database.ref().child('messages').push().key,
             url = `/messages/${key}`,
+            now = new Date(),
             data = {
-                date: new Date,
+                date: now.toString(),
                 text: this.textMapping[type],
                 id: type
             };
@@ -32,10 +31,7 @@ class Controls extends Component {
 
         database
             .ref()
-            .update(updates)
-            .then(() => {
-                this.props.addMessage({key, data});
-            });
+            .update(updates);
     }
 
     render() {
@@ -65,12 +61,4 @@ class Controls extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addMessage: (message) => {
-            dispatch(addMessage(message))
-        }
-    }
-}
-
-export default connect(() => ({}), mapDispatchToProps)(Controls);
+export default Controls;

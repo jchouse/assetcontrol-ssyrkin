@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MessagingControls from './Controls/Controls';
 import MessagingList from './List/List';
-import { getMessages } from '../../actions';
+import { getMessages, addMessage } from '../../actions';
 
 const firebase = window.firebase;
 
@@ -16,6 +16,15 @@ class Messaging extends Component {
 
     componentWillMount() {
         this.getMessages();
+
+        //Subscribe to adding shilds from server
+        const {database} = this.props,
+            messagesRef = database.ref('messages');
+
+        messagesRef.on('child_added', (data) => this.props.addMessage({
+            key: data.key,
+            data: data.val()
+        }));
     }
 
     getMessages() {
@@ -41,6 +50,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getMessages: (messages) => {
             dispatch(getMessages(messages))
+        },
+        addMessage: (message) => {
+            dispatch(addMessage(message))
         }
     }
 }
