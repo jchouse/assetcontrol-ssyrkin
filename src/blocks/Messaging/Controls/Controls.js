@@ -4,17 +4,22 @@ import './Controls.css';
 
 const firebase = window.firebase;
 
+/**
+ * Group of button to adding event to log
+ */
 class Controls extends Component {
     static defaultProps = {
         database: firebase.database(),
     }
 
+    // Messages types
     textMapping = {
         INFO: 'Some info message',
         WARNING: 'Some warning message of reversed',
         ERROR: 'Some error message'
     }
 
+    // Trigger event for adding event to log
     clickHandler = (type) => {
         const {database} = this.props,
             updates = {},

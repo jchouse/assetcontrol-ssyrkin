@@ -1,4 +1,4 @@
-### How to use
+### Common info
 Below you will find some information how I did that.<br>
 <br>
 In fact, for such a modest application, we do not need a separate backend and modern micro service capabilities represent a lot of opportunities to do without it at all. We can use AWS, Google Cloud Services, or Firebase (as here). Even for a simple backend, we do not need an instance quite simply some lambda by AWS or Google functions. Here you can just put everything in the database from the FE application.<br>

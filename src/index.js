@@ -9,6 +9,10 @@ import logApp from './reducers';
 
 let store = createStore(logApp);
 
+/**
+ * Render react app
+ * with Redux store provider
+ */
 ReactDOM.render(
     <Provider store={store}>
         <App />

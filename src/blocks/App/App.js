@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Messaging from '../Messaging/Messaging';
 
+/**
+ * Main app component
+ */
 export default class App extends Component {
     render() {
         return (

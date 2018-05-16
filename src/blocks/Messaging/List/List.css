@@ -2,9 +2,18 @@
 {
     width: 600px;
     margin: 0 auto;
+
+    text-align: left;
+}
+
+.messaging-list__counters-item
+{
+    line-height: 1.9;
+}
+
+.messaging-list__events
+{
     padding: 0;
 
     list-style: none;
-
-    text-align: left;
 }

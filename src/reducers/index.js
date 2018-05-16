@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+// Work with redux store key "messages"
 const messages = (state = {}, action) => {
     switch (action.type) {
         case 'GET_MESSAGES':
