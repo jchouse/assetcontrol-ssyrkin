@@ -76,7 +76,9 @@ class List extends Component {
 
         elemsPerPage = Math.round(viewPartOfList / counterListItemRect.height);
 
-        this.countEventsByType(startCountPosition, startCountPosition + elemsPerPage);
+        // if you need to collect only visible elems (not from file begin) insert startCountPosition
+        // for first argument
+        this.countEventsByType(0, startCountPosition + elemsPerPage);
     }
 
     countEventsByType(startCountPosition, endCountPosition) {
