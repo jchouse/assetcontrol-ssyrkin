@@ -21,7 +21,8 @@ class Messaging extends Component {
         const {database} = this.props,
             messagesRef = database.ref('messages');
 
-        messagesRef.on('child_added', (data) => this.props.addMessage({
+        // listen only last child added
+        messagesRef.limitToLast(1).on('child_added', (data) => this.props.addMessage({
             key: data.key,
             data: data.val()
         }));

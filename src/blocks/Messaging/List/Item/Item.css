@@ -1,6 +1,7 @@
 .messages-list-item
 {
-    margin: 10px 0;
+    margin: 0;
+    padding: 5px 0;
 }
 
 .messages-list-item__text:not(:last-child)
