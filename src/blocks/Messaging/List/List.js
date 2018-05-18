@@ -27,9 +27,7 @@ class List extends Component {
 
     componentDidMount() {
         const counterClientRect = this.counterElem.getBoundingClientRect();
-        window.addEventListener('scroll', this.windowScrollHandler, {
-            passive: true
-        });
+        window.addEventListener('scroll', this.windowScrollHandler);
 
         this.counterClientRect = counterClientRect;
     }
@@ -62,10 +60,8 @@ class List extends Component {
     }
 
     considerVisibleElements(scrollPosition = 0) {
-        const {counterClientRect, counterListItemRect, messagesList} = this,
-            intViewportHeight = window.innerHeight,
-            messagesLength = messagesList.length,
-            listHeight = messagesLength * counterListItemRect.height;
+        const {counterClientRect, counterListItemRect} = this,
+            intViewportHeight = window.innerHeight;
 
         let elemsPerPage = 0,
             startCountPosition = 0,
@@ -75,10 +71,10 @@ class List extends Component {
             viewPartOfList = viewPartOfList + scrollPosition;
         } else {
             viewPartOfList = intViewportHeight - counterClientRect.height;
-            startCountPosition = Math.floor((listHeight - (listHeight - scrollPosition + counterClientRect.height)) / counterListItemRect.height);
+            startCountPosition = Math.round((scrollPosition - counterClientRect.top) / counterListItemRect.height);
         }
 
-        elemsPerPage = Math.floor(viewPartOfList / counterListItemRect.height);
+        elemsPerPage = Math.round(viewPartOfList / counterListItemRect.height);
 
         this.countEventsByType(startCountPosition, startCountPosition + elemsPerPage);
     }
@@ -156,7 +152,7 @@ class List extends Component {
                 key='list'
                 className='messaging-list__events'>
                 {messagesList && messagesList
-                    .map((value, index) => <MessagesListItem  tabIndex={++index} key={value.date} data={value}/>)}
+                    .map((value, index) => <MessagesListItem  tabIndex={++index} key={value.date+index} data={value}/>)}
             </ul>
         </div>;
     }
