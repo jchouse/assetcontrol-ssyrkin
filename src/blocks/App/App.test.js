@@ -1,9 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+it('renders welcome message', () => {
+    const wrapper = shallow(<App />);
+    const welcome = <header className='app__header'>
+        <h1 className='app__title'>Welcome to simple log messages</h1>
+    </header>;
+
+    expect(wrapper.contains(welcome)).toEqual(true);
 });

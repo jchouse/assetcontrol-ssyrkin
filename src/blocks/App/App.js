@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Messaging from '../Messaging/Messaging';
 
+import jsdom from 'jsdom';
+
 /**
  * Main app component
  */
