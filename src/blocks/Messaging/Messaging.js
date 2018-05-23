@@ -9,7 +9,7 @@ const firebase = window.firebase;
 /**
  * Messaging common component for log list with main logic
  */
-class Messaging extends Component {
+export class Messaging extends Component {
     static defaultProps = {
         database: firebase.database()
     }
